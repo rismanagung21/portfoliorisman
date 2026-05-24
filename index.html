@@ -78,7 +78,27 @@
     background: radial-gradient(circle, rgba(240,180,41,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-inner { max-width: 860px; }
+  .hero-inner {
+  max-width: 860px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12rem;
+}
+.hero-text { flex: 1; }
+.hero-photo {
+  flex-shrink: 0;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 40px rgba(255,92,53,0.2);
+}
+@media (max-width: 720px) {
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+  .hero-photo { width: 150px; height: 150px; }
+}
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     background: rgba(255,92,53,0.1);
@@ -334,7 +354,8 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Tersedia untuk peluang baru</div>
+    <div class="hero-text">
+    <div class="hero-tag">My Portfolio</div>
     <h1>Risman Agung<br><em>Prayoga</em></h1>
     <p class="hero-desc">
       Digital Marketing Specialist dengan 2+ tahun pengalaman di bidang Advertising, KOL & Affiliate Management, serta Editing Foto & Video.
@@ -361,6 +382,8 @@
         <div class="stat-label">Portofolio Bisnis</div>
       </div>
     </div>
+    </div>
+    <img src="foto.png" alt="Risman Agung Prayoga" class="hero-photo">
   </div>
 </section>
 
@@ -378,28 +401,28 @@
       <div class="section-label" style="margin-bottom:1.5rem">Perjalanan Karir</div>
       <ul class="timeline">
         <li>
-          <div class="tl-year">2022</div>
+          <div class="tl-year">2023</div>
           <div class="tl-content">
             <div class="tl-title">Bergabung dengan RODEOS</div>
             <div class="tl-sub">PT Ultiface Selamet Nugraha</div>
           </div>
         </li>
         <li>
-          <div class="tl-year">2023</div>
+          <div class="tl-year">2024</div>
           <div class="tl-content">
             <div class="tl-title">Mengelola 200+ Kampanye</div>
             <div class="tl-sub">Meta Ads, TikTok Ads, Shopee Ads</div>
           </div>
         </li>
         <li>
-          <div class="tl-year">2024</div>
+          <div class="tl-year">2025</div>
           <div class="tl-content">
             <div class="tl-title">KOL & Affiliate Specialist</div>
             <div class="tl-sub">Membangun jaringan influencer TikTok</div>
           </div>
         </li>
         <li>
-          <div class="tl-year">2025</div>
+          <div class="tl-year">2026</div>
           <div class="tl-content">
             <div class="tl-title">Siap Tantangan Baru</div>
             <div class="tl-sub">2 tahun 3 bulan pengalaman solid</div>
@@ -475,7 +498,7 @@
         <div class="exp-title">Digital Marketing Specialist</div>
         <div class="exp-company">PT Ultiface Selamet Nugraha — RODEOS</div>
       </div>
-      <div class="exp-badge">2022 – 2025 · 2 Thn 3 Bln</div>
+      <div class="exp-badge">2023 – 2025 · 2 Thn 3 Bln</div>
     </div>
     <div class="exp-body">
       <h5>Advertising</h5>
@@ -506,7 +529,7 @@
   <div class="section-head">
     <div class="section-label">Proyek & Kampanye</div>
     <h2 class="section-title">Hasil nyata<br>yang terukur</h2>
-    <p class="section-sub">Portofolio kampanye selama 2 tahun 3 bulan di RODEOS.</p>
+    <p class="section-sub">Portofolio kampanye selama 2 tahun 3 bulan di RODEOS. (Data dibawah diambil berdasarkan sebagian kecil dari seluruh data yg telah saya buat)</p>
   </div>
   <div class="campaigns-grid">
     <div class="campaign-card">
@@ -514,7 +537,7 @@
       <div class="campaign-title">Kampanye Interaksi Instagram</div>
       <div class="campaign-desc">Iklan interaksi postingan Instagram untuk meningkatkan engagement brand RODEOS dan produk-produknya.</div>
       <div class="campaign-metrics">
-        <div class="metric"><div class="metric-val">214+</div><div class="metric-key">Total Kampanye</div></div>
+        <div class="metric"><div class="metric-val">50+</div><div class="metric-key">Total Kampanye</div></div>
         <div class="metric"><div class="metric-val">Multi</div><div class="metric-key">Akun Bisnis</div></div>
       </div>
     </div>
@@ -523,13 +546,13 @@
       <div class="campaign-title">Kampanye CPAS E-Commerce</div>
       <div class="campaign-desc">Catalog Product Ads Shopee (CPAS) — menghubungkan Meta Ads dengan listing produk Shopee untuk konversi langsung.</div>
       <div class="campaign-metrics">
-        <div class="metric"><div class="metric-val">Rp 72,5 Jt+</div><div class="metric-key">Transaksi Dihasilkan</div></div>
+        <div class="metric"><div class="metric-val">Rp 72,5 Jt+</div><div class="metric-key">Transaksi dihasilkan</div></div>
         <div class="metric"><div class="metric-val">7.936</div><div class="metric-key">Kunjungan Web</div></div>
       </div>
     </div>
     <div class="campaign-card">
       <div class="campaign-cat">TikTok Ads · Shop</div>
-      <div class="campaign-title">Report Iklan TikTok Shop</div>
+      <div class="campaign-title">Kampanye & Report Iklan TikTok Shop</div>
       <div class="campaign-desc">Pengelolaan iklan TikTok Shop harian — tracking impressi, klik, hasil, dan pengeluaran untuk brand NTI 111A.</div>
       <div class="campaign-metrics">
         <div class="metric"><div class="metric-val">462 Rb+</div><div class="metric-key">Total Impresi</div></div>
@@ -572,7 +595,7 @@
     <div class="section-label">Visi & Tujuan</div>
     <h2 class="section-title">Ke mana saya<br>akan melangkah</h2>
     <blockquote>
-      "Menjadi <em>Digital Marketing Specialist</em> yang tidak hanya mahir menjalankan iklan, tapi juga mampu membangun strategi pemasaran digital yang berdampak nyata bagi pertumbuhan brand."
+      "Menjadi <em>Digital Marketing Specialist</em> yang tidak hanya bisa menjalankan iklan, tapi juga mampu membangun strategi pemasaran digital yang berdampak nyata bagi pertumbuhan brand."
     </blockquote>
     <div class="vision-cards">
       <div class="vision-card">
@@ -639,7 +662,7 @@
 </section>
 
 <footer>
-  <p>© 2025 <span>Risman Agung Prayoga</span> · Digital Marketing Specialist · Nagrak, Sukabumi</p>
+  <p>© 2026 <span>Risman Agung Prayoga</span> · Digital Marketing Specialist · Nagrak, Sukabumi</p>
 </footer>
 
 </body>
