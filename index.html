@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risman Agung Prayoga — Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+    --accent: #ff5c35;
+    --accent2: #ff8f6b;
+    --gold: #f0b429;
+    --text: #f0ede8;
+    --muted: #888880;
+    --border: rgba(255,255,255,0.08);
+    --card-bg: #141414;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 5vw;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    color: var(--text); text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 5vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,92,53,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 10%; left: 5%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(240,180,41,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 860px; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,92,53,0.1);
+    border: 1px solid rgba(255,92,53,0.25);
+    color: var(--accent2);
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800; line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .hero-desc {
+    font-size: 1.1rem; color: var(--muted); max-width: 540px;
+    margin-bottom: 2.5rem; font-weight: 300; line-height: 1.8;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 0.85rem 2rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: #e04a25; transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--muted);
+    padding: 0.85rem 2rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.3); color: var(--text); transform: translateY(-2px); }
+
+  .hero-stats {
+    margin-top: 4rem;
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    padding-top: 2rem; border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem; font-weight: 800; color: var(--text);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
+  /* SECTIONS */
+  section { padding: 6rem 5vw; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; letter-spacing: -0.02em;
+    margin-bottom: 1rem; line-height: 1.15;
+  }
+  .section-sub { color: var(--muted); max-width: 500px; font-weight: 300; }
+  .section-head { margin-bottom: 3.5rem; }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-visual {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem; position: relative;
+  }
+  .about-visual::before {
+    content: ''; position: absolute; top: -1px; left: 24px; right: 24px; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    border-radius: 0 0 2px 2px;
+  }
+  .timeline { list-style: none; }
+  .timeline li {
+    padding: 1rem 0; border-bottom: 1px solid var(--border);
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .timeline li:last-child { border-bottom: none; }
+  .tl-year {
+    font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+    color: var(--accent); min-width: 50px; margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+  .tl-content { }
+  .tl-title { font-weight: 500; font-size: 0.95rem; }
+  .tl-sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+  /* SKILLS */
+  .skills-bg { background: var(--bg2); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .skill-card {
+    background: var(--card-bg); padding: 1.75rem;
+    transition: background 0.2s;
+  }
+  .skill-card:hover { background: var(--bg3); }
+  .skill-icon {
+    width: 42px; height: 42px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1rem;
+  }
+  .skill-card h4 { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.35rem; }
+  .skill-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+  .tag {
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; color: var(--muted);
+  }
+
+  /* EXPERIENCE */
+  .exp-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem 2.5rem; position: relative;
+    overflow: hidden;
+  }
+  .exp-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: linear-gradient(180deg, var(--accent), var(--gold));
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+  .exp-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; }
+  .exp-company { color: var(--accent); font-weight: 500; font-size: 0.95rem; margin-top: 4px; }
+  .exp-badge {
+    background: rgba(255,92,53,0.1); border: 1px solid rgba(255,92,53,0.2);
+    color: var(--accent2); font-size: 0.78rem; padding: 6px 14px; border-radius: 100px; font-weight: 500;
+  }
+  .exp-body { color: var(--muted); font-weight: 300; }
+  .exp-body h5 { color: var(--text); font-size: 0.85rem; font-weight: 500; margin: 1.2rem 0 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; }
+  .exp-body ul { list-style: none; }
+  .exp-body ul li {
+    padding: 0.4rem 0; padding-left: 1.2rem; position: relative; font-size: 0.92rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .exp-body ul li:last-child { border-bottom: none; }
+  .exp-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+
+  /* CAMPAIGNS */
+  .campaigns-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .campaign-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.75rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .campaign-card:hover { transform: translateY(-4px); border-color: rgba(255,92,53,0.3); }
+  .campaign-cat {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem;
+  }
+  .campaign-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.6rem; }
+  .campaign-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .campaign-metrics { display: flex; gap: 1rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .metric {
+    background: rgba(255,255,255,0.04); border-radius: 6px; padding: 0.5rem 0.75rem;
+  }
+  .metric-val { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold); }
+  .metric-key { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
+
+  /* VISION */
+  .vision-bg { background: var(--bg2); }
+  .vision-inner {
+    max-width: 720px; margin: 0 auto; text-align: center;
+  }
+  blockquote {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600; line-height: 1.5;
+    color: var(--text); margin: 2rem 0;
+    letter-spacing: -0.01em;
+  }
+  blockquote em { color: var(--accent); font-style: normal; }
+  .vision-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; text-align: left; }
+  .vision-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .vision-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .vision-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .vision-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  /* CONTACT */
+  .contact-inner { max-width: 640px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .contact-item {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none; color: var(--text);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-item:hover { border-color: rgba(255,92,53,0.3); background: var(--bg3); }
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: rgba(255,92,53,0.1); display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .contact-val { font-size: 0.9rem; font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 5vw; text-align: center;
+    color: var(--muted); font-size: 0.82rem;
+  }
+  footer span { color: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .vision-cards { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    nav .nav-links { display: none; }
+    .exp-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">RAP<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#keahlian">Keahlian</a></li>
+    <li><a href="#pengalaman">Pengalaman</a></li>
+    <li><a href="#kampanye">Kampanye</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Tersedia untuk peluang baru</div>
+    <h1>Risman Agung<br><em>Prayoga</em></h1>
+    <p class="hero-desc">
+      Digital Marketing Specialist dengan 2+ tahun pengalaman di bidang Advertising, KOL & Affiliate Management, serta Editing Foto & Video.
+    </p>
+    <div class="hero-cta">
+      <a href="#kontak" class="btn-primary">Hubungi Saya</a>
+      <a href="#kampanye" class="btn-outline">Lihat Kampanye</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">2<span>+</span></div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Platform Ads</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">214<span>+</span></div>
+        <div class="stat-label">Kampanye Dikelola</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Portofolio Bisnis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-label">Tentang Saya</div>
+      <h2 class="section-title">Tekun, disiplin,<br>& selalu belajar</h2>
+      <p>Saya adalah seorang <strong>Digital Marketing Specialist</strong> yang berpengalaman dalam menjalankan iklan berbayar di berbagai platform, membangun jaringan KOL & affiliator, sekaligus menghasilkan konten visual yang menarik.</p>
+      <p>Selama lebih dari 2 tahun di <strong>PT Ultiface Selamet Nugraha (RODEOS)</strong>, saya membuktikan kemampuan dalam mengelola puluhan kampanye iklan sekaligus, mengkoordinasikan ratusan KOL & influencer, serta memproduksi konten yang mendorong penjualan secara nyata.</p>
+      <p>Saya percaya bahwa <strong>data + kreativitas</strong> adalah kombinasi terkuat dalam pemasaran digital — dan itulah yang selalu saya terapkan dalam setiap pekerjaan.</p>
+    </div>
+    <div class="about-visual">
+      <div class="section-label" style="margin-bottom:1.5rem">Perjalanan Karir</div>
+      <ul class="timeline">
+        <li>
+          <div class="tl-year">2022</div>
+          <div class="tl-content">
+            <div class="tl-title">Bergabung dengan RODEOS</div>
+            <div class="tl-sub">PT Ultiface Selamet Nugraha</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-year">2023</div>
+          <div class="tl-content">
+            <div class="tl-title">Mengelola 200+ Kampanye</div>
+            <div class="tl-sub">Meta Ads, TikTok Ads, Shopee Ads</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-year">2024</div>
+          <div class="tl-content">
+            <div class="tl-title">KOL & Affiliate Specialist</div>
+            <div class="tl-sub">Membangun jaringan influencer TikTok</div>
+          </div>
+        </li>
+        <li>
+          <div class="tl-year">2025</div>
+          <div class="tl-content">
+            <div class="tl-title">Siap Tantangan Baru</div>
+            <div class="tl-sub">2 tahun 3 bulan pengalaman solid</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section id="keahlian" class="skills-bg">
+  <div class="section-head">
+    <div class="section-label">Keahlian & Tools</div>
+    <h2 class="section-title">Senjata digital<br>saya</h2>
+    <p class="section-sub">Kombinasi keahlian paid advertising, manajemen KOL, dan produksi konten visual.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(255,92,53,0.12)">📢</div>
+      <h4>Paid Advertising</h4>
+      <p>Mengelola iklan performa tinggi di berbagai platform dengan target ROAS yang terukur.</p>
+      <div class="tag-list">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">TikTok Ads</span>
+        <span class="tag">Shopee Ads</span>
+        <span class="tag">CPAS</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(240,180,41,0.12)">🤝</div>
+      <h4>KOL & Affiliate</h4>
+      <p>Rekrutmen, negosiasi, briefing, dan evaluasi performa KOL serta affiliator TikTok.</p>
+      <div class="tag-list">
+        <span class="tag">Talent Scouting</span>
+        <span class="tag">Brief Konten</span>
+        <span class="tag">GMV Tracking</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(93,202,165,0.12)">🎬</div>
+      <h4>Editing Foto & Video</h4>
+      <p>Produksi konten iklan yang menarik untuk keperluan campaign di berbagai platform.</p>
+      <div class="tag-list">
+        <span class="tag">CapCut</span>
+        <span class="tag">Adobe Premiere</span>
+        <span class="tag">Photoshop</span>
+        <span class="tag">Canva</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:rgba(127,119,221,0.12)">📊</div>
+      <h4>Data & Reporting</h4>
+      <p>Analisis performa kampanye, pembuatan laporan harian, dan optimasi berdasarkan data.</p>
+      <div class="tag-list">
+        <span class="tag">Meta Business Suite</span>
+        <span class="tag">TikTok Ads Manager</span>
+        <span class="tag">Excel/Spreadsheet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <div class="section-head">
+    <div class="section-label">Pengalaman Kerja</div>
+    <h2 class="section-title">Dibuktikan<br>di lapangan</h2>
+  </div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-title">Digital Marketing Specialist</div>
+        <div class="exp-company">PT Ultiface Selamet Nugraha — RODEOS</div>
+      </div>
+      <div class="exp-badge">2022 – 2025 · 2 Thn 3 Bln</div>
+    </div>
+    <div class="exp-body">
+      <h5>Advertising</h5>
+      <ul>
+        <li>Membuat dan mengelola kampanye iklan di Meta Ads (Facebook & Instagram) — interaksi, landing page, awareness, dan CPAS</li>
+        <li>Menjalankan iklan di TikTok Ads & Shopee Ads untuk meningkatkan visibilitas dan penjualan produk</li>
+        <li>Mengelola lebih dari 8 portofolio bisnis aktif sekaligus, termasuk RODEOS, Skin Agency, Reg Account Rodeos x Pilar, dan lainnya</li>
+        <li>Analisis demografi & platform placement untuk optimasi budget iklan</li>
+      </ul>
+      <h5>KOL & Affiliate Specialist</h5>
+      <ul>
+        <li>Mencari, menghubungi, dan menjalin kerjasama dengan KOL & influencer affiliator di TikTok</li>
+        <li>Menyusun brief konten untuk berbagai kategori produk (Charcoal Soap, Serum Triple Action, Facial Treatment, dll.)</li>
+        <li>Tracking GMV harian dari konten KOL dan live streaming talent</li>
+        <li>Mengelola database ratusan KOL — mulai dari proses ACC, upload konten, hingga evaluasi performa</li>
+      </ul>
+      <h5>Editing Foto & Video</h5>
+      <ul>
+        <li>Memproduksi konten video iklan untuk kebutuhan Meta Ads dan TikTok Ads</li>
+        <li>Editing konten penjualan yang dioptimalkan untuk performa iklan digital</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KAMPANYE -->
+<section id="kampanye" style="background: var(--bg2)">
+  <div class="section-head">
+    <div class="section-label">Proyek & Kampanye</div>
+    <h2 class="section-title">Hasil nyata<br>yang terukur</h2>
+    <p class="section-sub">Portofolio kampanye selama 2 tahun 3 bulan di RODEOS.</p>
+  </div>
+  <div class="campaigns-grid">
+    <div class="campaign-card">
+      <div class="campaign-cat">Meta Ads · Interaksi</div>
+      <div class="campaign-title">Kampanye Interaksi Instagram</div>
+      <div class="campaign-desc">Iklan interaksi postingan Instagram untuk meningkatkan engagement brand RODEOS dan produk-produknya.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">214+</div><div class="metric-key">Total Kampanye</div></div>
+        <div class="metric"><div class="metric-val">Multi</div><div class="metric-key">Akun Bisnis</div></div>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-cat">Meta Ads · CPAS</div>
+      <div class="campaign-title">Kampanye CPAS E-Commerce</div>
+      <div class="campaign-desc">Catalog Product Ads Shopee (CPAS) — menghubungkan Meta Ads dengan listing produk Shopee untuk konversi langsung.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">Rp 72,5 Jt+</div><div class="metric-key">Transaksi Dihasilkan</div></div>
+        <div class="metric"><div class="metric-val">7.936</div><div class="metric-key">Kunjungan Web</div></div>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-cat">TikTok Ads · Shop</div>
+      <div class="campaign-title">Report Iklan TikTok Shop</div>
+      <div class="campaign-desc">Pengelolaan iklan TikTok Shop harian — tracking impressi, klik, hasil, dan pengeluaran untuk brand NTI 111A.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">462 Rb+</div><div class="metric-key">Total Impresi</div></div>
+        <div class="metric"><div class="metric-val">176</div><div class="metric-key">Total Hasil</div></div>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-cat">KOL · TikTok</div>
+      <div class="campaign-title">Program KOL & Affiliator</div>
+      <div class="campaign-desc">Membangun jaringan KOL TikTok — mulai scouting, briefing, hingga tracking GMV dan performa konten secara berkala.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">100+</div><div class="metric-key">KOL Aktif</div></div>
+        <div class="metric"><div class="metric-val">Multi</div><div class="metric-key">Kategori Produk</div></div>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-cat">Meta Ads · Landing Page</div>
+      <div class="campaign-title">Iklan Landing Page</div>
+      <div class="campaign-desc">Kampanye iklan tujuan traffic dan lead generation — awareness hingga pengenalan produk baru ke pasar.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">371</div><div class="metric-key">Kampanye Aktif</div></div>
+        <div class="metric"><div class="metric-val">Laki-laki 87%</div><div class="metric-key">Demografi Dominan</div></div>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-cat">Live Streaming</div>
+      <div class="campaign-title">Report Talent Live</div>
+      <div class="campaign-desc">Koordinasi dan pelaporan performa talent live streaming — tracking revenue, GMV, dan target harian per talent.</div>
+      <div class="campaign-metrics">
+        <div class="metric"><div class="metric-val">Rp 1,3 Jt</div><div class="metric-key">Target per Sesi</div></div>
+        <div class="metric"><div class="metric-val">Multi Talent</div><div class="metric-key">Live Harian</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISI & TUJUAN -->
+<section id="visi" class="vision-bg">
+  <div class="vision-inner">
+    <div class="section-label">Visi & Tujuan</div>
+    <h2 class="section-title">Ke mana saya<br>akan melangkah</h2>
+    <blockquote>
+      "Menjadi <em>Digital Marketing Specialist</em> yang tidak hanya mahir menjalankan iklan, tapi juga mampu membangun strategi pemasaran digital yang berdampak nyata bagi pertumbuhan brand."
+    </blockquote>
+    <div class="vision-cards">
+      <div class="vision-card">
+        <div class="vision-card-icon">🎯</div>
+        <h4>Tujuan Jangka Pendek</h4>
+        <p>Mengembangkan keahlian dalam strategi pemasaran digital yang lebih holistik — dari ads berbayar hingga konten organik — untuk menghasilkan ROAS yang lebih optimal bagi brand manapun yang dipercayakan kepada saya.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-card-icon">🚀</div>
+        <h4>Visi Karir</h4>
+        <p>Tumbuh menjadi Digital Marketing Lead yang mampu memimpin tim, merancang strategi campaign end-to-end, dan berkontribusi langsung terhadap pertumbuhan bisnis digital secara signifikan dan berkelanjutan.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-card-icon">💡</div>
+        <h4>Nilai Kerja Saya</h4>
+        <p>Saya percaya pada kerja keras berbasis data, kolaborasi tim yang solid, dan semangat belajar yang tidak pernah berhenti. Setiap kampanye adalah kesempatan untuk belajar lebih jauh.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-card-icon">📈</div>
+        <h4>Komitmen Hasil</h4>
+        <p>Setiap proyek yang saya tangani, saya pastikan terukur — dengan laporan yang transparan, optimasi yang konsisten, dan komunikasi yang terbuka kepada semua stakeholder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="contact-inner">
+    <div class="section-label">Kontak</div>
+    <h2 class="section-title">Mari bekerja<br>sama</h2>
+    <p class="section-sub">Tertarik berkolaborasi atau memiliki peluang menarik? Jangan ragu untuk menghubungi saya.</p>
+    <div class="contact-grid">
+      <a href="tel:+6281399197780" class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">WhatsApp / Telepon</div>
+          <div class="contact-val">0813-9919-7780</div>
+        </div>
+      </a>
+      <a href="mailto:rismanagung21@gmail.com" class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">rismanagung21@gmail.com</div>
+        </div>
+      </a>
+      <div class="contact-item" style="cursor:default">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Lokasi</div>
+          <div class="contact-val">Nagrak, Sukabumi</div>
+        </div>
+      </div>
+      <div class="contact-item" style="cursor:default">
+        <div class="contact-icon">🟢</div>
+        <div>
+          <div class="contact-label">Status</div>
+          <div class="contact-val">Tersedia untuk hire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>Risman Agung Prayoga</span> · Digital Marketing Specialist · Nagrak, Sukabumi</p>
+</footer>
+
+</body>
+</html>
